@@ -1,0 +1,13 @@
+<h3>Doctor <%=@doctor.name%></h3>
+<br>
+<h3>Department <%=@doctor.department%></h3>
+
+<%@doctor.appointments.each_with_index do |appointment, index|%>
+    <h4>Appointment <%=index+1%></h4>
+    <ul>
+        <li>Time: <%=appointment.appointment_datetime.strftime("%B %e, %Y at %H:%M")%></li>
+        <li>Patient: <%=link_to appointment.patient.name, patient_path(appointment.patient)%></li>
+    </ul>
+
+<%end%>
+
